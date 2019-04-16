@@ -1,7 +1,7 @@
 # EP 2019-1: Escape Insper
 #
 # Alunos: 
-# - Antonio Saporiti: Fulano da Silva, fulanos@insper.edu.br
+# - aluno A: Antonio Saporiti, antonios2@al.insper.edu.br
 # - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
 
 def carregar_cenarios():
