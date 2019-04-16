@@ -2,7 +2,7 @@
 #
 # Alunos: 
 # - aluno A: Antonio Saporiti, antonios2@al.insper.edu.br
-# - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
+# - aluno B: Breno Marti, brenopm@al.insper.edu.br
 
 def carregar_cenarios():
     cenarios = {
