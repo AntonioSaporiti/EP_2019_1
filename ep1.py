@@ -55,9 +55,10 @@ def main():
     print()
 
     cenarios, nome_cenario_atual = carregar_cenarios()
+    hp=100
 
     game_over = False
-    while not game_over:
+    while not game_over and hp > 0:
         cenario_atual = cenarios[nome_cenario_atual]
         print(cenario_atual["titulo"])
         print("-"*len(cenario_atual["titulo"]))
