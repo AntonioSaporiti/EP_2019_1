@@ -138,12 +138,14 @@ def main():
             escolha = input("Faça sua escolha: ")
                         
             if escolha in ['professor']: 
+
                 hp1 = hp - 10
                 print(hp1, 'de vida')   
             
             if escolha in ["sesao 1"]:
                 hp1=hp-20
                 print (hp1,'de vida')
+                
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
@@ -158,5 +160,5 @@ def main():
 
 
 # Programa principal.
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
