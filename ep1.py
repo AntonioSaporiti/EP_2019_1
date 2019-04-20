@@ -58,11 +58,19 @@ def main():
     game_over = False
     while not game_over:
         cenario_atual = cenarios[nome_cenario_atual]
+        print(cenario_atual["titulo"])
+        print("-"*len(cenario_atual["titulo"]))
+        
 
         # Aluno A: substitua este comentário pelo código para imprimir 
         # o cenário atual.
+        
+    
 
         opcoes = cenario_atual['opcoes']
+    
+        for k,v in opcoes.items():
+            print("{0}: {1}".format(k,v))
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
@@ -70,7 +78,8 @@ def main():
 
             # Aluno B: substitua este comentário e a linha abaixo pelo código
             # para pedir a escolha do usuário.
-            escolha = ""
+            escolha = input("Faça sua escolha")
+            
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
