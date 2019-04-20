@@ -34,9 +34,51 @@ def carregar_cenarios():
             "titulo": "Caverna da tranquilidade",
             "descricao": "Voce esta na biblioteca",
             "opcoes": {
-                "inicio": "Voltar para o saguao de entrada"
+                "inicio": "Voltar para o saguao de entrada",
+                "bibliotecaria": "Falar com a bibliotecária",
             }
-        }
+        },
+        "bibliotecaria": {
+                "titulo": "Uma alma misteriosa",
+                "descricao": "Voce está atrás de livros sagrados."
+                            " Esses livros são capazes de acelerar seu aprendizado"
+                            " em programação e, consequentemente, dão-te mais tempo"
+                            " para realização do trabalho."
+                            " Voce pede as coordenadas de localização desses livros à"
+                            " bibliotecária."
+                            " No entanto, ela começou a trabalhar na instituição semana"
+                            " passada e não sabe ao certo em qual das duas seções estão"
+                            " os livros",
+                            
+                "opcoes": {
+                       "inicio": "Falar com a bibliotecária",
+                       "secao 1": "Entrar na seção de Programação em C",
+                       "secao 2": "Entrar na seção de Programação em Python",
+            }
+        },
+        "secao 1": {
+                "titulo": "A Seção Traiçoeira",
+                "descricao": "A ala está mal iluminada e sua visão começa a embaçar."
+                            " Voce consegue ver um esboço de uma figura ao final da seção."
+                            " A figura que parecia ser da bibliotecaria começa a"
+                            " sofrer mutações e se transforma no temido comedor de"
+                            " programadores e arranca seu cérebro fora.",
+                "opcoes": {
+                        "secao 2": "Voce só tem uma saída."
+                                    " Corra para a Seção 2!!!",
+                        }
+                },
+        "secao 2": {
+                "titulo": "O Olimpo da Sabedoria",
+                "descricao": "Voce chegou onde precisava."
+                            " Aqui voce vai aprender a lidar com a linguagem em Python"
+                            " e ganhar tempo para o seu trabalho!"
+                            " Em salas como essa, voce ganha tempo que será acumulado"
+                            " para realização do seu trabalho"
+                            " Voce acaba de ganhar 1 dia" ,
+                "tempo": 1
+                            
+                }
     }
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -51,7 +93,7 @@ def main():
     print()
     print("É o dia de entregar o EP e você está muuuuito atrasado! Você está "
         "na entrada do Insper, e quer procurar o professor para pedir um "
-        "adiamento do EP (boa sorte...)")
+        "adiamento do EP (boa sorte...)") 
     print()
 
     cenarios, nome_cenario_atual = carregar_cenarios()
@@ -62,13 +104,22 @@ def main():
         cenario_atual = cenarios[nome_cenario_atual]
         print(cenario_atual["titulo"])
         print("-"*len(cenario_atual["titulo"]))
-        
+        print(cenario_atual["descricao"])
+        print("-"*len(cenario_atual["descricao"]))
 
-        # Aluno A: substitua este comentário pelo código para imprimir 
-        # o cenário atual.
-        
-    
+#Tentativa de fazer o contador de hit points
 
+        #TempoInicial = 0
+        #TempoRestante = cenario_atual['tempo']
+        
+        #for k,v in TempoRestante.items():
+         #   print("{0}: {1}".format(k,v))
+        #if TempoRestante != TempoInicial:
+        #    print()
+        
+        
+        
+        
         opcoes = cenario_atual['opcoes']
     
         for k,v in opcoes.items():
@@ -76,17 +127,24 @@ def main():
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
+            
+        
+            
         else:
 
             # Aluno B: substitua este comentário e a linha abaixo pelo código
             # para pedir a escolha do usuário.
-            escolha = input("Faça sua escolha, lembre-se, o tempo é crucial")
-            
+            escolha = input("Faça sua escolha: ")
+                        
+            if escolha in ['professor']: 
+                hp = hp - 10
+                print(hp, 'de vida')   
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
+            
             elif escolha not in opcoes:
-                print("Essa opção não existe, preste atenção no jogo, caso contrário, você falhará....")
+                print("Essa opção não existe!")
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
@@ -95,5 +153,5 @@ def main():
 
 
 # Programa principal.
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
