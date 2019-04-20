@@ -79,11 +79,13 @@ def main():
 
             # Aluno B: substitua este comentário e a linha abaixo pelo código
             # para pedir a escolha do usuário.
-            escolha = input("Faça sua escolha")
+            escolha = input("Faça sua escolha, lembre-se, o tempo é crucial")
             
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
+            elif escolha not in opcoes:
+                print("Essa opção não existe, preste atenção no jogo, caso contrário, você falhará....")
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
