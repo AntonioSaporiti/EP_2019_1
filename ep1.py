@@ -5,6 +5,8 @@
 # - aluno B: Breno Marti, brenopm@al.insper.edu.br
 # - aluno C: Fernando Bichuette, fernandoba2@al.insper.edu.br
 #
+import random
+
 def carregar_cenarios():
     cenarios = {
         "inicio": {
@@ -107,8 +109,11 @@ def main():
     print()
 
     cenarios, nome_cenario_atual = carregar_cenarios()
+    
     hp=100
-
+    
+    dano=random.randint(0,100)
+    
     game_over = False
     while not game_over and hp > 0:
         cenario_atual = cenarios[nome_cenario_atual]
@@ -147,8 +152,22 @@ def main():
             escolha = input("Faça sua escolha: ")
                         
             if escolha in ['professor']: 
+<<<<<<< HEAD
                 hp = hp - 10
                 print("Você tem",hp, 'de vida')   
+=======
+
+                hp = hp - dano
+                print('Voce recebeu',dano,'agora voce tem',hp,'de vida')   
+            
+            if escolha in ["sesao 1"]:
+                hp=hp - dano
+                print ('Voce recebeu',dano,'agora voce tem',hp,'de vida')
+            
+            elif dano==100:
+                print("Seu dano foi de 100, voce morreu")
+                game_over= True
+>>>>>>> 205a494455344bfc2e5c261795a885affa69599e
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
@@ -165,3 +184,9 @@ def main():
 # Programa principal.
 if _name_ == "_main_":
     main()
+    
+    
+    
+    
+    
+    
