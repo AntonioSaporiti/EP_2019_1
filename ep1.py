@@ -28,7 +28,17 @@ def carregar_cenarios():
             "descricao": "Voce foi pedir para o professor adiar o EP. "
                          "O professor revelou que é um monstro disfarçado "
                          "e devorou sua alma.",
-            "opcoes": {}
+            "opcoes": {
+        }
+        "Auditorio":{
+                "titulo":"Um poder oculto"
+                "descricao":"Nessa sala, voce sente um poder estranho emanando"
+                            "de todos os lados, na parede está escrito: gewoon"
+                            "praten en je zal zijn" #holandes para "basta falar e la vc estara"
+                "opcoes":{
+                        "O que devo fazer ?":"a sala parece que voce saia"
+                        }
+                }
         },
         "biblioteca": {
             "titulo": "Caverna da tranquilidade",
@@ -138,7 +148,7 @@ def main():
                         
             if escolha in ['professor']: 
                 hp = hp - 10
-                print(hp, 'de vida')   
+                print("Você tem",hp, 'de vida')   
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
