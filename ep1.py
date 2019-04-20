@@ -5,6 +5,7 @@
 # - aluno B: Breno Marti, brenopm@al.insper.edu.br
 # - aluno C: Fernando Bichuette, fernandoba2@al.insper.edu.br
 #
+
 def carregar_cenarios():
     cenarios = {
         "inicio": {
@@ -97,10 +98,10 @@ def main():
     print()
 
     cenarios, nome_cenario_atual = carregar_cenarios()
-    
+    hp=100
 
     game_over = False
-    while not game_over:
+    while not game_over and hp > 0:
         cenario_atual = cenarios[nome_cenario_atual]
         print(cenario_atual["titulo"])
         print("-"*len(cenario_atual["titulo"]))
@@ -117,7 +118,9 @@ def main():
         #if TempoRestante != TempoInicial:
         #    print()
         
-
+        
+        
+        
         opcoes = cenario_atual['opcoes']
     
         for k,v in opcoes.items():
@@ -126,17 +129,25 @@ def main():
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
             
-       
+        
             
         else:
 
             # Aluno B: substitua este comentário e a linha abaixo pelo código
             # para pedir a escolha do usuário.
             escolha = input("Faça sua escolha: ")
+                        
+            if escolha in ['professor']: 
+                hp1 = hp - 10
+                print(hp1, 'de vida')   
             
+            if escolha in ["sesao 1"]:
+                hp1=hp-20
+                print (hp1,'de vida')
 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
+            
             elif escolha not in opcoes:
                 print("Essa opção não existe!")
             else:
