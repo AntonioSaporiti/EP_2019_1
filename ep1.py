@@ -6,7 +6,7 @@
 # - aluno C: Fernando Bichuette, fernandoba2@al.insper.edu.br
 #
 import random
-
+sala_de_armas =[ "sala de armas"]
 def carregar_cenarios():
     cenarios = {
         "inicio": {
@@ -31,6 +31,7 @@ def carregar_cenarios():
             "descricao": "Voce foi pedir para o professor adiar o EP. "
                          "O professor revelou que é um monstro disfarçado "
                          "e devorou sua alma.",
+<<<<<<< HEAD
             "opcoes": {
         }
         "auditorio":{
@@ -44,6 +45,9 @@ def carregar_cenarios():
                         "leerkracht lopen": "?????"
                         }
                 }
+=======
+            "opcoes": {}
+>>>>>>> f51fb9d6fb31cf746b3f67b73b06707f76c81412
         },
         "biblioteca": {
             "titulo": "Caverna da tranquilidade",
@@ -77,7 +81,7 @@ def carregar_cenarios():
                             " Voce consegue ver um esboço de uma figura ao final da seção."
                             " A figura que parecia ser da bibliotecaria começa a"
                             " sofrer mutações e se transforma no temido comedor de"
-                            " programadores e arranca seu cérebro fora.",
+                            " programadores e arranca parte do seu cérebro fora.",
                 "opcoes": {
                         "secao 2": "Voce só tem uma saída."
                                     " Corra para a Seção 2!!!",
@@ -91,10 +95,60 @@ def carregar_cenarios():
                             " Em salas como essa, voce ganha tempo que será acumulado"
                             " para realização do seu trabalho"
                             " Voce acaba de ganhar 1 dia" ,
-                "tempo": 1
-                            
+                "opcoes": {
+                        "bibliotecaria": "Voltar a falar com a Bibliotecaria.",
+                        "auditorio": "Avançar para o auditório.",
+                    },
+#                "tempo": 1,
+                },
+                "auditorio":{
+                "titulo":"Um poder oculto",
+                "descricao":"Nessa sala, voce sente um poder estranho emanando"
+                            " de todos os lados, na parede está escrito: gewoon"
+                            " praten en je zal zijn."
+                            " Traduzindo do holandês... basta falar e la vc estara.",
+                            #holandes para "basta falar e la vc estara"
+                "opcoes":{ "salao pereira telles": "kj",
+                        #criar o teletransporte para a sala escolha(salao pereira telles)
+                        }
+                },
+        "salao pereira telles": {
+                "titulo": "O salão das escolhas",
+                "descricao": "Neste salão, serão dadas oportunidades..."
+                            " Elas podem se repetir..."
+                            " Escolha sabiamente para que o processo de saida não caia em"
+                            " um loop infinito!",
+                "opcoes": {
+                        "auditorio": "Retornar ao auditório",
+                        "cafeteria": "Avançar para a cafeteria",
+                        "laboratorio": "Avançar para o laboratório",
+                        "sala de armas":"", #Outra opção
+                        }
+                },
+        "cafeteria": {
+                "titulo": "A cafeteria fantasma",
+                "descricao": "Um espaço peculiar. Poucos sabem de sua existência,"
+                            " mas é vital para que voce se mantenha no jogo."
+                            " Aqui voce consegue ganhar mais vida",
+                "opcoes": {
+                        "laboratorio": "Seguir adiante para o lab",
+                        "salao pereira telles": "Retornar ao salão das oportunidades",
+                        "saldo vidas": "20",# nao consegui add isso como chave ao dicionario
                 }
-    }
+            },
+         "sala de armas": {
+               "titulo":"A sala de armas",
+               "descricao":"Voce adentrou a sala do conhecimento,"
+                           "aqui há três armas que podem derrortar o MONSTRO da dependencia"
+                           "escolha sabiamente seu futuro depende disso (☠)!!",
+               "opcoes": {
+                       "O livro ": "", #60 de dano
+                       "A espada de fogo útvaldaður": "", #30 de dano
+                       "O arco e flecha de veikur " : "", # 15 de dano
+                       "salao pereira telles": "Retornar ao salão das oportunidades",
+            }               
+        }, 
+    } 
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
@@ -115,7 +169,7 @@ def main():
     
     hp=100
     
-    dano=random.randint(0,100)
+    dano=random.randint(0,99)
     
     game_over = False
     while not game_over and hp > 0:
@@ -124,17 +178,17 @@ def main():
         print("-"*len(cenario_atual["titulo"]))
         print(cenario_atual["descricao"])
         print("-"*len(cenario_atual["descricao"]))
+    
 
 #Tentativa de fazer o contador de hit points
 
-        #TempoInicial = 0
-        #TempoRestante = cenario_atual['tempo']
+#        TempoRestante = cenario_atual['tempo']
         
-        #for k,v in TempoRestante.items():
-         #   print("{0}: {1}".format(k,v))
-        #if TempoRestante != TempoInicial:
-        #    print()
         
+#        for v in TempoRestante.items():
+#            print("Seu tempo adicional é {0}".format(v))
+        
+    
         
         
         
@@ -152,30 +206,36 @@ def main():
 
             # Aluno B: substitua este comentário e a linha abaixo pelo código
             # para pedir a escolha do usuário.
+            
+            
             escolha = input("Faça sua escolha: ")
                         
             if escolha in ['professor']: 
-<<<<<<< HEAD
-                hp = hp - 10
-                print("Você tem",hp, 'de vida')   
-=======
 
+                  
                 hp = hp - dano
-                print('Voce recebeu',dano,'agora voce tem',hp,'de vida')   
+                print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
             
-            if escolha in ["sesao 1"]:
+            if escolha in ["secao 1"]:
                 hp=hp - dano
-                print ('Voce recebeu',dano,'agora voce tem',hp,'de vida')
+                print ('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')
             
             elif dano==100:
                 print("Seu dano foi de 100, voce morreu")
                 game_over= True
->>>>>>> 205a494455344bfc2e5c261795a885affa69599e
-
+                
+            if escolha in ['cafeteria']: #PROBLEMA - está add vida antes do cara escolher a opçao
+                hp = hp + 20
+                print ("Seu saldo de vida é: ", hp)
+            
+            if len(escolha) in ["auditorio"]  == int('basta falar e voce estara la'):
+                print('Voce conseguiu uma chave do conhecimento')
+            
+            
             if escolha in opcoes:
                 nome_cenario_atual = escolha
             
-            elif escolha not in opcoes:
+            elif len(escolha) != 0 and escolha not in opcoes:
                 print("Essa opção não existe!")
             else:
                 print("Sua indecisão foi sua ruína!")
@@ -185,9 +245,8 @@ def main():
 
 
 # Programa principal.
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
-    
     
     
     
