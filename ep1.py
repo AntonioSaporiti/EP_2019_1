@@ -6,7 +6,7 @@
 # - aluno C: Fernando Bichuette, fernandoba2@al.insper.edu.br
 #
 import random
-
+sala_de_armas =[ "sala de armas"]
 def carregar_cenarios():
     cenarios = {
         "inicio": {
@@ -105,7 +105,7 @@ def carregar_cenarios():
                         "auditorio": "Retornar ao auditório",
                         "cafeteria": "Avançar para a cafeteria",
                         "laboratorio": "Avançar para o laboratório",
-                        #Outra opção
+                        "sala de armas":"", #Outra opção
                         }
                 },
         "cafeteria": {
@@ -117,8 +117,20 @@ def carregar_cenarios():
                         "laboratorio": "Seguir adiante para o lab",
                         "salao pereira telles": "Retornar ao salão das oportunidades",
                         "saldo vidas": "20",# nao consegui add isso como chave ao dicionario
-                },
-            }
+                }
+            },
+         "sala de armas": {
+               "titulo":"A sala de armas",
+               "descricao":"Voce adentrou a sala do conhecimento,"
+                           "aqui há três armas que podem derrortar o MONSTRO da dependencia"
+                           "escolha sabiamente seu futuro depende disso (☠)!!",
+               "opcoes": {
+                       "O livro ": "", #60 de dano
+                       "A espada de fogo útvaldaður": "", #30 de dano
+                       "O arco e flecha de veikur " : "", # 15 de dano
+                       "salao pereira telles": "Retornar ao salão das oportunidades",
+            }               
+        }, 
     } 
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -140,7 +152,7 @@ def main():
     
     hp=100
     
-    dano=random.randint(0,100)
+    dano=random.randint(0,99)
     
     game_over = False
     while not game_over and hp > 0:
@@ -183,10 +195,7 @@ def main():
                         
             if escolha in ['professor']: 
 
-                hp = hp - 10
-                print("Você tem",hp, 'de vida')   
-
-
+                  
                 hp = hp - dano
                 print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
             
@@ -201,7 +210,11 @@ def main():
             if escolha in ['cafeteria']: #PROBLEMA - está add vida antes do cara escolher a opçao
                 hp = hp + 20
                 print ("Seu saldo de vida é: ", hp)
-
+            
+            if len(escolha) in ["auditorio"]  == int('basta falar e voce estara la'):
+                print('Voce conseguiu uma chave do conhecimento')
+            
+            
             if escolha in opcoes:
                 nome_cenario_atual = escolha
             
