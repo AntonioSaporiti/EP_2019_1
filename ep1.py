@@ -15,6 +15,7 @@ def carregar_cenarios():
             "opcoes": {
                 "andar professor": "Tomar o elevador para o andar do professor",
                 "biblioteca": "Ir para a biblioteca"
+                "auditorio" : "Ir para o auditorio"
             }
         },
         "andar professor": {
@@ -32,13 +33,15 @@ def carregar_cenarios():
                          "e devorou sua alma.",
             "opcoes": {
         }
-        "Auditorio":{
+        "auditorio":{
                 "titulo":"Um poder oculto"
                 "descricao":"Nessa sala, voce sente um poder estranho emanando"
                             "de todos os lados, na parede está escrito: gewoon"
                             "praten en je zal zijn" #holandes para "basta falar e la vc estara"
                 "opcoes":{
-                        "O que devo fazer ?":"a sala parece que voce saia"
+                        "bibliotheek": "?????"
+                        "vroeg": "?????"
+                        "leerkracht lopen": "?????"
                         }
                 }
         },
