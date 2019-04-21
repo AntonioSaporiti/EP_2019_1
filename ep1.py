@@ -6,7 +6,7 @@
 # - aluno C: Fernando Bichuette, fernandoba2@al.insper.edu.br
 #
 import random
-sala_de_armas =[ "sala de armas"]
+
 def carregar_cenarios():
     cenarios = {
         "inicio": {
@@ -154,6 +154,8 @@ def main():
     
     dano=random.randint(0,99)
     
+    
+    
     game_over = False
     while not game_over and hp > 0:
         cenario_atual = cenarios[nome_cenario_atual]
@@ -210,14 +212,27 @@ def main():
             if escolha in ['cafeteria']: #PROBLEMA - está add vida antes do cara escolher a opçao
                 hp = hp + 20
                 print ("Seu saldo de vida é: ", hp)
+                
+            elif escolha in ["auditorio"]  == 'basta falar e voce estara la':
+                print('Voce conseguiu uma chave do conhecimento')            
             
-            if len(escolha) in ["auditorio"]  == int('basta falar e voce estara la'):
-                print('Voce conseguiu uma chave do conhecimento')
-            
-            
+             #tentativa de criar escholer as armas 
+           # if escolha in ["sala de armas"] == "O livro" or "espada de fogo útvaldaður"or "O arco e flecha de veikur":
+                
+            #    arma == sala_de_armas          
+             #   print ('voce escolheu o/a',arma, 'como arma')
+                #certeza=input("tem certeza disso (y/n)")
+               # if certeza == ("y"):
+                    # print('Agora voce tem ',certeza ,'no seu inventario')
+                #else:
+                    #print ("Você precisa escolher uma arma")
+                
+                
             if escolha in opcoes:
                 nome_cenario_atual = escolha
+                
             
+                
             elif len(escolha) != 0 and escolha not in opcoes:
                 print("Essa opção não existe!")
             else:
