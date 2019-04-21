@@ -31,7 +31,7 @@ def carregar_cenarios():
             "descricao": "Voce foi pedir para o professor adiar o EP. "
                          "O professor revelou que é um monstro disfarçado "
                          "e devorou sua alma.",
-<<<<<<< HEAD
+
             "opcoes": {
         }
         "auditorio":{
@@ -45,9 +45,9 @@ def carregar_cenarios():
                         "leerkracht lopen": "?????"
                         }
                 }
-=======
+
             "opcoes": {}
->>>>>>> f51fb9d6fb31cf746b3f67b73b06707f76c81412
+
         },
         "biblioteca": {
             "titulo": "Caverna da tranquilidade",
