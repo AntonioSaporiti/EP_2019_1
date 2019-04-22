@@ -32,6 +32,25 @@ def carregar_cenarios():
                          "e devorou sua alma.",
 
             "opcoes": {},
+<<<<<<< HEAD
+=======
+        "auditorio":{
+                "titulo":"Um poder oculto",
+                "descricao":"Nessa sala, voce sente um poder estranho emanando"
+                            "de todos os lados, na parede está escrito: gewoon"
+                            "praten en je zal zijn", #holandes para "basta falar e la vc estara"
+                "opcoes":{
+                        "bibliotheek": "?????",
+                        "vroeg": "?????",
+                        "leerkracht lopen": "?????",
+                        "cafetaria": "essa é meio obvia",
+                        "wapenkamer": "?????",
+                        
+                        }
+                },
+
+#            "opcoes": {}
+>>>>>>> 28bb8b848a10e6539261e732336db3d5365c8f24
 
         },
                 
@@ -80,15 +99,23 @@ def carregar_cenarios():
                             " e ganhar tempo para o seu trabalho!"
                             " Em salas como essa, voce ganha tempo que será acumulado"
                             " para realização do seu trabalho"
-                            " Voce acaba de ganhar 1 dia" ,
+                            " Voce acaba de ganhar uma chave de sabedoria" ,
                 "opcoes": {
                         "bibliotecaria": "Voltar a falar com a Bibliotecaria.",
+<<<<<<< HEAD
                         "salao soreira malles": "Avançar para o salao Soreira Malles.",
                     }
 
                 },
 
         "salao soreira malles": {
+=======
+                        "auditorio": "Avançar para o auditório.",
+                    },
+#                "tempo": 1,
+                },
+        "salao pereira telles": {
+>>>>>>> 28bb8b848a10e6539261e732336db3d5365c8f24
                 "titulo": "O salão das escolhas",
                 "descricao": "Neste salão, serão dadas oportunidades..."
                             " Elas podem se repetir..."
@@ -124,6 +151,7 @@ def carregar_cenarios():
                        "salao pereira telles": "Retornar ao salão das oportunidades",
             }               
         }, 
+<<<<<<< HEAD
         "auditorio":{
                 "titulo":"Um poder oculto",
                 "descricao":"Nessa sala, voce sente um poder estranho emanando"
@@ -136,6 +164,20 @@ def carregar_cenarios():
                         }
     },
    }
+=======
+        "sala do monstro":{
+                "titulo":"A sala derradeira",
+                "descricao":"Você entrou na sala derradeira, tudo o que você fez o trouxe"
+                            "para cá, você tem observa o ambiente e se prepara, você sabe o"
+                            "que vai acontecer aqui. Tudo depende disso, a sua nota em Dessoft"
+                            "que você tanto quer preservar, a DP que você nâo quer pegar, tudo"
+                            "depende da entrega do EP, e para isso, você precisa passar pelo teste"
+                            "final..."
+                "opcoes":{
+                        
+                        }}
+    } 
+>>>>>>> 28bb8b848a10e6539261e732336db3d5365c8f24
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
@@ -155,7 +197,7 @@ def main():
     cenarios, nome_cenario_atual = carregar_cenarios()
     
     hp=100
-    
+    chave_de_sabedoria=0
     dano=random.randint(0,99)
     
     
@@ -204,9 +246,18 @@ def main():
            # if escolha in ['professor']: 
 
                   
+<<<<<<< HEAD
                # hp = hp - dano
               #  print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
             
+=======
+             #andar proan   hp = hp - dano
+            #    print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
+            if escolha in ["secao 2"]:
+                print("você ganhou uma chave de sabedoria")
+                chave_de_sabedoria+=1
+                
+>>>>>>> 28bb8b848a10e6539261e732336db3d5365c8f24
             if escolha in ["secao 1"]:
                 hp=hp - dano
                 print ('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')
@@ -215,7 +266,7 @@ def main():
                 print("Seu dano foi de 100, voce morreu")
                 game_over= True
                 
-            if escolha in ['saldo vidas']: #PROBLEMA - está add vida antes do cara escolher a opçao
+            if escolha in ['cafeteria']: #PROBLEMA - está add vida antes do cara escolher a opçao
                 hp = hp + 20
                 print ("Seu saldo de vida é: ", hp)
                 print(opcoes) 
@@ -256,7 +307,7 @@ def main():
 if __name__ == "__main__":
     main()
     
-    
+
     
     
     
