@@ -14,8 +14,8 @@ def carregar_cenarios():
             "descricao": "Voce esta no saguao de entrada do insper",
             "opcoes": {
                 "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca"
-                "auditorio" : "Ir para o auditorio"
+                "biblioteca": "Ir para a biblioteca",
+                "auditorio" : "Ir para o auditorio",
             }
         },
         "andar professor": {
@@ -32,21 +32,20 @@ def carregar_cenarios():
                          "O professor revelou que é um monstro disfarçado "
                          "e devorou sua alma.",
 
-            "opcoes": {
-        }
+            "opcoes": {},
         "auditorio":{
-                "titulo":"Um poder oculto"
+                "titulo":"Um poder oculto",
                 "descricao":"Nessa sala, voce sente um poder estranho emanando"
                             "de todos os lados, na parede está escrito: gewoon"
-                            "praten en je zal zijn" #holandes para "basta falar e la vc estara"
+                            "praten en je zal zijn", #holandes para "basta falar e la vc estara"
                 "opcoes":{
-                        "bibliotheek": "?????"
-                        "vroeg": "?????"
-                        "leerkracht lopen": "?????"
+                        "bibliotheek": "?????",
+                        "vroeg": "?????",
+                        "leerkracht lopen": "?????",
                         }
-                }
+                },
 
-            "opcoes": {}
+#            "opcoes": {}
 
         },
         "biblioteca": {
