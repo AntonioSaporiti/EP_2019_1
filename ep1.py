@@ -42,6 +42,9 @@ def carregar_cenarios():
                         "bibliotheek": "?????",
                         "vroeg": "?????",
                         "leerkracht lopen": "?????",
+                        "cafetaria": "essa é meio obvia",
+                        "wapenkamer": "?????",
+                        
                         }
                 },
 
@@ -93,23 +96,12 @@ def carregar_cenarios():
                             " e ganhar tempo para o seu trabalho!"
                             " Em salas como essa, voce ganha tempo que será acumulado"
                             " para realização do seu trabalho"
-                            " Voce acaba de ganhar 1 dia" ,
+                            " Voce acaba de ganhar uma chave de sabedoria" ,
                 "opcoes": {
                         "bibliotecaria": "Voltar a falar com a Bibliotecaria.",
                         "auditorio": "Avançar para o auditório.",
                     },
 #                "tempo": 1,
-                },
-                "auditorio":{
-                "titulo":"Um poder oculto",
-                "descricao":"Nessa sala, voce sente um poder estranho emanando"
-                            " de todos os lados, na parede está escrito: gewoon"
-                            " praten en je zal zijn."
-                            " Traduzindo do holandês... basta falar e la vc estara.",
-                            #holandes para "basta falar e la vc estara"
-                "opcoes":{ "salao pereira telles": "kj",
-                        #criar o teletransporte para a sala escolha(salao pereira telles)
-                        }
                 },
         "salao pereira telles": {
                 "titulo": "O salão das escolhas",
@@ -147,6 +139,17 @@ def carregar_cenarios():
                        "salao pereira telles": "Retornar ao salão das oportunidades",
             }               
         }, 
+        "sala do monstro":{
+                "titulo":"A sala derradeira",
+                "descricao":"Você entrou na sala derradeira, tudo o que você fez o trouxe"
+                            "para cá, você tem observa o ambiente e se prepara, você sabe o"
+                            "que vai acontecer aqui. Tudo depende disso, a sua nota em Dessoft"
+                            "que você tanto quer preservar, a DP que você nâo quer pegar, tudo"
+                            "depende da entrega do EP, e para isso, você precisa passar pelo teste"
+                            "final..."
+                "opcoes":{
+                        
+                        }}
     } 
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -167,7 +170,7 @@ def main():
     cenarios, nome_cenario_atual = carregar_cenarios()
     
     hp=100
-    
+    chave_de_sabedoria=0
     dano=random.randint(0,99)
     
     
@@ -211,12 +214,15 @@ def main():
             
             escolha = input("Faça sua escolha: ")
                         
-            if escolha in ['professor']: 
+           # if escolha in ['professor']: 
 
                   
-                hp = hp - dano
-                print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
-            
+             #andar proan   hp = hp - dano
+            #    print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
+            if escolha in ["secao 2"]:
+                print("você ganhou uma chave de sabedoria")
+                chave_de_sabedoria+=1
+                
             if escolha in ["secao 1"]:
                 hp=hp - dano
                 print ('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')
@@ -262,7 +268,7 @@ def main():
 if __name__ == "__main__":
     main()
     
-    
+
     
     
     
