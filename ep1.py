@@ -231,7 +231,7 @@ def main():
                 print("Seu dano foi de 100, voce morreu")
                 game_over= True
                 
-            if escolha in ['saldo vidas']: #PROBLEMA - está add vida antes do cara escolher a opçao
+            if escolha in ['cafeteria']: #PROBLEMA - está add vida antes do cara escolher a opçao
                 hp = hp + 20
                 print ("Seu saldo de vida é: ", hp)
                 
