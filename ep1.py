@@ -48,8 +48,6 @@ def carregar_cenarios():
                         }
                 },
 
-#            "opcoes": {}
-
         },
         "biblioteca": {
             "titulo": "Caverna da tranquilidade",
@@ -101,7 +99,6 @@ def carregar_cenarios():
                         "bibliotecaria": "Voltar a falar com a Bibliotecaria.",
                         "auditorio": "Avançar para o auditório.",
                     },
-#                "tempo": 1,
                 },
         "salao pereira telles": {
                 "titulo": "O salão das escolhas",
@@ -146,10 +143,14 @@ def carregar_cenarios():
                             "que vai acontecer aqui. Tudo depende disso, a sua nota em Dessoft"
                             "que você tanto quer preservar, a DP que você nâo quer pegar, tudo"
                             "depende da entrega do EP, e para isso, você precisa passar pelo teste"
-                            "final..."
+                            "final... O monstro da DP''''', uma alma penada tão ruim em programação"
+                            "que desafia as regras da física e do Insper, pegando 6 DPs",
                 "opcoes":{
+                        "atacar":"voce ataca o monstro com todo o seu vigor",
+                        "fugir":"você se acovarda e foge do monstro à sua frente",
                         
-                        }}
+                        }
+                }
     } 
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -236,8 +237,12 @@ def main():
                 print ("Seu saldo de vida é: ", hp)
                 
             elif escolha in ["auditorio"]  == 'basta falar e voce estara la':
-                print('Voce conseguiu uma chave do conhecimento')            
-            
+                print('Voce conseguiu uma chave do conhecimento')  
+                
+            if escolha in ["sala do monstro"] == "fugir":
+                print("Você se acorvardou e não merece o sucesso")
+                game_over = True
+                
              #tentativa de criar escholer as armas 
            # if escolha in ["sala de armas"] == "O livro" or "espada de fogo útvaldaður"or "O arco e flecha de veikur":
                 
