@@ -15,7 +15,6 @@ def carregar_cenarios():
             "opcoes": {
                 "andar professor": "Tomar o elevador para o andar do professor",
                 "biblioteca": "Ir para a biblioteca",
-                "auditorio" : "Ir para o auditorio",
             }
         },
         "andar professor": {
@@ -33,21 +32,9 @@ def carregar_cenarios():
                          "e devorou sua alma.",
 
             "opcoes": {},
-        "auditorio":{
-                "titulo":"Um poder oculto",
-                "descricao":"Nessa sala, voce sente um poder estranho emanando"
-                            "de todos os lados, na parede está escrito: gewoon"
-                            "praten en je zal zijn", #holandes para "basta falar e la vc estara"
-                "opcoes":{
-                        "bibliotheek": "?????",
-                        "vroeg": "?????",
-                        "leerkracht lopen": "?????",
-                        }
-                },
-
-#            "opcoes": {}
 
         },
+                
         "biblioteca": {
             "titulo": "Caverna da tranquilidade",
             "descricao": "Voce esta na biblioteca",
@@ -96,22 +83,12 @@ def carregar_cenarios():
                             " Voce acaba de ganhar 1 dia" ,
                 "opcoes": {
                         "bibliotecaria": "Voltar a falar com a Bibliotecaria.",
-                        "auditorio": "Avançar para o auditório.",
-                    },
-#                "tempo": 1,
+                        "salao soreira malles": "Avançar para o salao Soreira Malles.",
+                    }
+
                 },
-                "auditorio":{
-                "titulo":"Um poder oculto",
-                "descricao":"Nessa sala, voce sente um poder estranho emanando"
-                            " de todos os lados, na parede está escrito: gewoon"
-                            " praten en je zal zijn."
-                            " Traduzindo do holandês... basta falar e la vc estara.",
-                            #holandes para "basta falar e la vc estara"
-                "opcoes":{ "salao pereira telles": "kj",
-                        #criar o teletransporte para a sala escolha(salao pereira telles)
-                        }
-                },
-        "salao pereira telles": {
+
+        "salao soreira malles": {
                 "titulo": "O salão das escolhas",
                 "descricao": "Neste salão, serão dadas oportunidades..."
                             " Elas podem se repetir..."
@@ -135,19 +112,30 @@ def carregar_cenarios():
                         "saldo vidas": "20",# nao consegui add isso como chave ao dicionario
                 }
             },
-         "sala de armas": {
-               "titulo":"A sala de armas",
-               "descricao":"Voce adentrou a sala do conhecimento,"
-                           "aqui há três armas que podem derrortar o MONSTRO da dependencia"
-                           "escolha sabiamente seu futuro depende disso (☠)!!",
+         "laboratorio": {
+               "titulo":"O FAB LAB de armas",
+               "descricao":"Voce adentrou a sala de forjamento de armas,"
+                           " aqui há três armas que podem derrortar o MONSTRO da dependencia"
+                           " escolha sabiamente, seu futuro depende disso (☠)!!",
                "opcoes": {
-                       "O livro ": "", #60 de dano
-                       "A espada de fogo útvaldaður": "", #30 de dano
-                       "O arco e flecha de veikur " : "", # 15 de dano
+                       "o livro": "O livro Nilo Ney Menezes", #60 de dano
+                       "a espada": "A espada de fogo útvaldaður", #30 de dano
+                       "o arco" : "O arco e flecha de veikur", # 15 de dano
                        "salao pereira telles": "Retornar ao salão das oportunidades",
             }               
         }, 
-    } 
+        "auditorio":{
+                "titulo":"Um poder oculto",
+                "descricao":"Nessa sala, voce sente um poder estranho emanando"
+                            " de todos os lados, na parede está escrito: gewoon"
+                            " praten en je zal zijn."
+                            " Traduzindo do holandês... basta falar e la vc estara.",
+                            #holandes para "basta falar e la vc estara"
+                "opcoes":{
+                        #criar o teletransporte para a sala escolha(salao pereira telles)
+                        }
+    },
+   }
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
@@ -197,6 +185,8 @@ def main():
     
         for k,v in opcoes.items():
             print("{0}: {1}".format(k,v))
+            
+            
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
@@ -211,11 +201,11 @@ def main():
             
             escolha = input("Faça sua escolha: ")
                         
-            if escolha in ['professor']: 
+           # if escolha in ['professor']: 
 
                   
-                hp = hp - dano
-                print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
+               # hp = hp - dano
+              #  print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
             
             if escolha in ["secao 1"]:
                 hp=hp - dano
@@ -228,6 +218,10 @@ def main():
             if escolha in ['saldo vidas']: #PROBLEMA - está add vida antes do cara escolher a opçao
                 hp = hp + 20
                 print ("Seu saldo de vida é: ", hp)
+                print(opcoes) 
+                
+            if len(opcoes) == 1:
+                print (opcoes)
                 
             elif escolha in ["auditorio"]  == 'basta falar e voce estara la':
                 print('Voce conseguiu uma chave do conhecimento')            
