@@ -1,10 +1,3 @@
-# EP 2019-1: Escape Insper
-#
-# Alunos: 
-# - aluno A: Antonio Saporiti, antonios2@al.insper.edu.br
-# - aluno B: Breno Marti, brenopm@al.insper.edu.br
-# - aluno C: Fernando Bichuette, fernandoba2@al.insper.edu.br
-#
 import random
 
 def carregar_cenarios():
@@ -15,7 +8,6 @@ def carregar_cenarios():
             "opcoes": {
                 "andar professor": "Tomar o elevador para o andar do professor",
                 "biblioteca": "Ir para a biblioteca",
-                "auditorio" : "Ir para o auditorio",
             }
         },
         "andar professor": {
@@ -33,22 +25,9 @@ def carregar_cenarios():
                          "e devorou sua alma.",
 
             "opcoes": {},
-        "auditorio":{
-                "titulo":"Um poder oculto",
-                "descricao":"Nessa sala, voce sente um poder estranho emanando"
-                            "de todos os lados, na parede está escrito: gewoon"
-                            "praten en je zal zijn", #holandes para "basta falar e la vc estara"
-                "opcoes":{
-                        "bibliotheek": "?????",
-                        "vroeg": "?????",
-                        "leerkracht lopen": "?????",
-                        "cafetaria": "essa é meio obvia",
-                        "wapenkamer": "?????",
                         
-                        }
-                },
-
         },
+                
         "biblioteca": {
             "titulo": "Caverna da tranquilidade",
             "descricao": "Voce esta na biblioteca",
@@ -97,10 +76,13 @@ def carregar_cenarios():
                             " Voce acaba de ganhar uma chave de sabedoria" ,
                 "opcoes": {
                         "bibliotecaria": "Voltar a falar com a Bibliotecaria.",
-                        "auditorio": "Avançar para o auditório.",
-                    },
+
+                        "salao soreira malles": "Avançar para o salao Soreira Malles.",
+                    }
+
                 },
-        "salao pereira telles": {
+
+        "salao soreira malles": {
                 "titulo": "O salão das escolhas",
                 "descricao": "Neste salão, serão dadas oportunidades..."
                             " Elas podem se repetir..."
@@ -111,8 +93,20 @@ def carregar_cenarios():
                         "cafeteria": "Avançar para a cafeteria",
                         "laboratorio": "Avançar para o laboratório",
                         "sala de armas":"", #Outra opção
+                        "sala da charada":"Avançar para uma sala enigmática"
                         }
                 },
+        "sala da charada":{
+                "titulo":"Um enigma",
+                "descricao": "Você entra na sala e se senta numa cadeira dela e observa a"
+                             " lousa, em que uma frase foi escrita: O que usa coroa mas não"
+                             " é rei??...", 
+                "opcoes":{
+                        "resposta": "para escrever sua resposta digite 'resposta'",
+                        "salao soreira malles":"voltar ao salao soreira malles",
+                        }
+                },
+                
         "cafeteria": {
                 "titulo": "A cafeteria fantasma",
                 "descricao": "Um espaço peculiar. Poucos sabem de sua existência,"
@@ -124,18 +118,30 @@ def carregar_cenarios():
                         "saldo vidas": "20",# nao consegui add isso como chave ao dicionario
                 }
             },
-         "sala de armas": {
-               "titulo":"A sala de armas",
-               "descricao":"Voce adentrou a sala do conhecimento,"
-                           "aqui há três armas que podem derrortar o MONSTRO da dependencia"
-                           "escolha sabiamente seu futuro depende disso (☠)!!",
+         "laboratorio": {
+               "titulo":"O FAB LAB de armas",
+               "descricao":"Voce adentrou a sala de forjamento de armas,"
+                           " aqui há três armas que podem derrortar o MONSTRO da dependencia"
+                           " escolha sabiamente, seu futuro depende disso (☠)!!",
                "opcoes": {
-                       "O livro ": "", #60 de dano
-                       "A espada de fogo útvaldaður": "", #30 de dano
-                       "O arco e flecha de veikur " : "", # 15 de dano
+                       "o livro": "O livro Nilo Ney Menezes", #60 de dano
+                       "a espada": "A espada de fogo útvaldaður", #30 de dano
+                       "o arco" : "O arco e flecha de veikur", # 15 de dano
                        "salao pereira telles": "Retornar ao salão das oportunidades",
             }               
         }, 
+
+        "auditorio":{
+                "titulo":"Um poder oculto",
+                "descricao":"Nessa sala, voce sente um poder estranho emanando"
+                            " de todos os lados, na parede está escrito: gewoon"
+                            " praten en je zal zijn."
+                            " Traduzindo do holandês... basta falar e la vc estara.",
+                            #holandes para "basta falar e la vc estara"
+                "opcoes":{
+                        
+                        }
+    },
         "sala do monstro":{
                 "titulo":"A sala derradeira",
                 "descricao":"Você entrou na sala derradeira, tudo o que você fez o trouxe"
@@ -143,15 +149,13 @@ def carregar_cenarios():
                             "que vai acontecer aqui. Tudo depende disso, a sua nota em Dessoft"
                             "que você tanto quer preservar, a DP que você nâo quer pegar, tudo"
                             "depende da entrega do EP, e para isso, você precisa passar pelo teste"
-                            "final... O monstro da DP''''', uma alma penada tão ruim em programação"
-                            "que desafia as regras da física e do Insper, pegando 6 DPs",
+                            "final...",
                 "opcoes":{
-                        "atacar":"voce ataca o monstro com todo o seu vigor",
-                        "fugir":"você se acovarda e foge do monstro à sua frente",
                         
                         }
                 }
     } 
+
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
@@ -201,11 +205,16 @@ def main():
     
         for k,v in opcoes.items():
             print("{0}: {1}".format(k,v))
+            
+            
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
             
-        
+        elif len(opcoes) == 1:
+            
+            game_over = False 
+            
             
         else:
 
@@ -215,15 +224,12 @@ def main():
             
             escolha = input("Faça sua escolha: ")
                         
-           # if escolha in ['professor']: 
-
-                  
-             #andar proan   hp = hp - dano
-            #    print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
+   
             if escolha in ["secao 2"]:
                 print("você ganhou uma chave de sabedoria")
                 chave_de_sabedoria+=1
                 
+
             if escolha in ["secao 1"]:
                 hp=hp - dano
                 print ('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')
@@ -236,13 +242,26 @@ def main():
                 hp = hp + 20
                 print ("Seu saldo de vida é: ", hp)
                 
+
+
             elif escolha in ["auditorio"]  == 'basta falar e voce estara la':
-                print('Voce conseguiu uma chave do conhecimento')  
+                print('Voce conseguiu uma chave do conhecimento')
                 
-            if escolha in ["sala do monstro"] == "fugir":
-                print("Você se acorvardou e não merece o sucesso")
-                game_over = True
+            if opcoes in ["sala da charada"] != 0:
+                while True:
+                    resposta = input("Digite a resposta, fim para encerrar")
+                    if resposta == "fim":
+                        break
+                    if resposta == "abacaxi":
+                        
+                        print("voce acertou")
+                        chave_de_sabedoria+=1
+                        break
+                    else:
+                          print("você não acertou, vai estudar mais pra não pegar outra")
+                          print("DP além dessa de Dessoft a qual você ja está fadado")
                 
+
              #tentativa de criar escholer as armas 
            # if escolha in ["sala de armas"] == "O livro" or "espada de fogo útvaldaður"or "O arco e flecha de veikur":
                 
@@ -272,8 +291,5 @@ def main():
 # Programa principal.
 if __name__ == "__main__":
     main()
-    
-
-    
     
     
