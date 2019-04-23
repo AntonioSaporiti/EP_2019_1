@@ -101,8 +101,15 @@ def carregar_cenarios():
                              " lousa, em que uma frase foi escrita: O que usa coroa mas não"
                              " é rei??...", 
                 "opcoes":{
-                        "resposta": "para escrever sua resposta digite 'resposta'",
+                        "abacaxi": "para escrever sua resposta digite 'resposta'",
                         "salao soreira malles":"voltar ao salao soreira malles",
+        }
+                },
+          "abacaxi":{
+                "titulo":"Voce acertou",
+                "descricao":"Voce foi recompensado com uma chave da sabedoria",
+                "opcoes":{
+                        "salao soreira malles":"voltar ao salao",
                         }
                 },
                 
@@ -112,23 +119,11 @@ def carregar_cenarios():
                             " mas é vital para que voce se mantenha no jogo."
                             " Aqui voce consegue ganhar mais vida",
                 "opcoes": {
-                        "laboratorio": "Seguir adiante para o lab",
-                        "salao pereira telles": "Retornar ao salão das oportunidades",
-                        "saldo vidas": "20",# nao consegui add isso como chave ao dicionario
+                        "salao soreira malles": "Retornar ao salão das oportunidades",
+ #                       "saldo vidas": "20",
                 }
             },
-         "laboratorio": {
-               "titulo":"O FAB LAB de armas",
-               "descricao":"Voce adentrou a sala de forjamento de armas,"
-                           " aqui há três armas que podem derrortar o MONSTRO da dependencia"
-                           " escolha sabiamente, seu futuro depende disso (☠)!!",
-               "opcoes": {
-                       "o livro": "O livro Nilo Ney Menezes", #60 de dano
-                       "a espada": "A espada de fogo útvaldaður", #30 de dano
-                       "o arco" : "O arco e flecha de veikur", # 15 de dano
-                       "salao pereira telles": "Retornar ao salão das oportunidades",
-            }               
-        }, 
+ 
 
         "auditorio":{
                 "titulo":"Um poder oculto",
@@ -138,10 +133,11 @@ def carregar_cenarios():
                             " Traduzindo do holandês... basta falar e la vc estara.",
                             #holandes para "basta falar e la vc estara"
                 "opcoes":{
-                        
+                        "aceito":"você aceita o poder da sala",
+                        "salao soreira malles":"voltar ao salao",
                         }
     },
-        "sala do monstro":{
+        "aceito":{
                 "titulo":"A sala derradeira",
                 "descricao":"Você entrou na sala derradeira, tudo o que você fez o trouxe"
                             " para cá, você observa o ambiente e se prepara, você sabe o"
@@ -154,9 +150,7 @@ def carregar_cenarios():
                             " a dois deles, caso contrário, terá que resistir a três ataques"
                             " brutais!",
                 "opcoes":{
-                        "ataque 1": "Se lascou sem charada",
-                        "ataque 2": "A água está no pescoço",
-                        "ataque 3": "Livre-se quem puder da DP"
+                        "o ataque": "A ultima jogada, se sobreviver é campeão"
                         }
                 },
     } 
@@ -249,42 +243,33 @@ def main():
             elif escolha in ["auditorio"]  == 'basta falar e voce estara la':
                 print('Voce conseguiu uma chave do conhecimento')
                 
-            if escolha in ["resposta"]:
-                while True:
-                    resposta = input("Digite a resposta, fim para encerrar")
-                    if resposta == "fim":
-                        break
-                    if resposta == "abacaxi":
+                
+        #    if escolha in ["resposta"]:
+          #3         resposta = input("Digite a resposta, fim para encerrar: ")
+            #        if resposta == "fim":
+             #           break
+              #      if resposta == "abacaxi":
+                  #  
+                   #     
+                    #    print("voce acertou")
+                     #   chave_de_sabedoria+=1
                         
-                        print("voce acertou")
-                        chave_de_sabedoria+=1
-                        break
-                    else:
-                          print("você não acertou, vai estudar mais pra não pegar outra")
-                          print("DP além dessa de Dessoft a qual você ja está fadado")
+                
+                      #  break
+                    
+                   # else:
+                    #      print("você não acertou, vai estudar mais pra não pegar outra")
+                     #     print("DP além dessa de Dessoft a qual você ja está fadado")
             
-            if opcoes in ['sala do monstro'] and chave_de_sabedoria>1:
-                hp1 = hp - dano
-                hp2 = hp1 - dano
-                print(hp2)
-            else:
-                hp1= hp - dano
-                hp2= hp1 - dano
-                hp3 = hp2 - dano
-                print(hp3)
-                
+            if escolha in ['o ataque']:
+                hp = hp - 80
+                if hp > 0:
+                    print("Voce ganhou!!!", hp)
+                else:
+                    print("A DP chegou", hp)
 
-             #tentativa de criar escholer as armas 
-           # if escolha in ["sala de armas"] == "O livro" or "espada de fogo útvaldaður"or "O arco e flecha de veikur":
-                
-            #    arma == sala_de_armas          
-             #   print ('voce escolheu o/a',arma, 'como arma')
-                #certeza=input("tem certeza disso (y/n)")
-               # if certeza == ("y"):
-                    # print('Agora voce tem ',certeza ,'no seu inventario')
-                #else:
-                    #print ("Você precisa escolher uma arma")
-                
+
+
                 
             if escolha in opcoes:
                 nome_cenario_atual = escolha
