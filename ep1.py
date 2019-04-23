@@ -1,10 +1,3 @@
-# EP 2019-1: Escape Insper
-#
-# Alunos: 
-# - aluno A: Antonio Saporiti, antonios2@al.insper.edu.br
-# - aluno B: Breno Marti, brenopm@al.insper.edu.br
-# - aluno C: Fernando Bichuette, fernandoba2@al.insper.edu.br
-#
 import random
 
 def carregar_cenarios():
@@ -32,8 +25,7 @@ def carregar_cenarios():
                          "e devorou sua alma.",
 
             "opcoes": {},
-
-
+                        
         },
                 
         "biblioteca": {
@@ -57,7 +49,7 @@ def carregar_cenarios():
                             " os livros",
                             
                 "opcoes": {
-                       "biblioteca": "Falar com a bibliotecária",
+                       "inicio": "Falar com a bibliotecária",
                        "secao 1": "Entrar na seção de Programação em C",
                        "secao 2": "Entrar na seção de Programação em Python",
             }
@@ -101,8 +93,20 @@ def carregar_cenarios():
                         "cafeteria": "Avançar para a cafeteria",
                         "laboratorio": "Avançar para o laboratório",
                         "sala de armas":"", #Outra opção
+                        "sala da charada":"Avançar para uma sala enigmática"
                         }
                 },
+        "sala da charada":{
+                "titulo":"Um enigma",
+                "descricao": "Você entra na sala e se senta numa cadeira dela e observa a"
+                             " lousa, em que uma frase foi escrita: O que usa coroa mas não"
+                             " é rei??...", 
+                "opcoes":{
+                        "resposta": "para escrever sua resposta digite 'resposta'",
+                        "salao soreira malles":"voltar ao salao soreira malles",
+                        }
+                },
+                
         "cafeteria": {
                 "titulo": "A cafeteria fantasma",
                 "descricao": "Um espaço peculiar. Poucos sabem de sua existência,"
@@ -185,7 +189,16 @@ def main():
         print("-"*len(cenario_atual["descricao"]))
     
 
+#Tentativa de fazer o contador de hit points
+
+#        TempoRestante = cenario_atual['tempo']
+        
+        
+#        for v in TempoRestante.items():
+#            print("Seu tempo adicional é {0}".format(v))
+        
     
+        
         
         
         opcoes = cenario_atual['opcoes']
@@ -215,7 +228,7 @@ def main():
             if escolha in ["secao 2"]:
                 print("você ganhou uma chave de sabedoria")
                 chave_de_sabedoria+=1
-                print(chave_de_sabedoria)
+                
 
             if escolha in ["secao 1"]:
                 hp=hp - dano
@@ -231,9 +244,24 @@ def main():
                 
 
 
-            elif escolha in ["bibliotecaria"]  == 'basta falar e voce estara la':
-                print('Voce conseguiu uma chave do conhecimento')            
-            
+            elif escolha in ["auditorio"]  == 'basta falar e voce estara la':
+                print('Voce conseguiu uma chave do conhecimento')
+                
+            if opcoes in ["sala da charada"] != 0:
+                while True:
+                    resposta = input("Digite a resposta, fim para encerrar")
+                    if resposta == "fim":
+                        break
+                    if resposta == "abacaxi":
+                        
+                        print("voce acertou")
+                        chave_de_sabedoria+=1
+                        break
+                    else:
+                          print("você não acertou, vai estudar mais pra não pegar outra")
+                          print("DP além dessa de Dessoft a qual você ja está fadado")
+                
+
              #tentativa de criar escholer as armas 
            # if escolha in ["sala de armas"] == "O livro" or "espada de fogo útvaldaður"or "O arco e flecha de veikur":
                 
@@ -249,8 +277,7 @@ def main():
             if escolha in opcoes:
                 nome_cenario_atual = escolha
                 
-            elif escolha in ["bibliotecaria"]  == 'basta falar e voce estara la':
-                print('Voce conseguiu uma chave do conhecimento')   
+            
                 
             elif len(escolha) != 0 and escolha not in opcoes:
                 print("Essa opção não existe!")
@@ -265,8 +292,5 @@ def main():
 # Programa principal.
 if __name__ == "__main__":
     main()
-    
-
-    
     
     
