@@ -32,25 +32,7 @@ def carregar_cenarios():
                          "e devorou sua alma.",
 
             "opcoes": {},
-<<<<<<< HEAD
-=======
-        "auditorio":{
-                "titulo":"Um poder oculto",
-                "descricao":"Nessa sala, voce sente um poder estranho emanando"
-                            "de todos os lados, na parede está escrito: gewoon"
-                            "praten en je zal zijn", #holandes para "basta falar e la vc estara"
-                "opcoes":{
-                        "bibliotheek": "?????",
-                        "vroeg": "?????",
-                        "leerkracht lopen": "?????",
-                        "cafetaria": "essa é meio obvia",
-                        "wapenkamer": "?????",
-                        
-                        }
-                },
 
-#            "opcoes": {}
->>>>>>> 28bb8b848a10e6539261e732336db3d5365c8f24
 
         },
                 
@@ -75,7 +57,7 @@ def carregar_cenarios():
                             " os livros",
                             
                 "opcoes": {
-                       "inicio": "Falar com a bibliotecária",
+                       "biblioteca": "Falar com a bibliotecária",
                        "secao 1": "Entrar na seção de Programação em C",
                        "secao 2": "Entrar na seção de Programação em Python",
             }
@@ -102,20 +84,13 @@ def carregar_cenarios():
                             " Voce acaba de ganhar uma chave de sabedoria" ,
                 "opcoes": {
                         "bibliotecaria": "Voltar a falar com a Bibliotecaria.",
-<<<<<<< HEAD
+
                         "salao soreira malles": "Avançar para o salao Soreira Malles.",
                     }
 
                 },
 
         "salao soreira malles": {
-=======
-                        "auditorio": "Avançar para o auditório.",
-                    },
-#                "tempo": 1,
-                },
-        "salao pereira telles": {
->>>>>>> 28bb8b848a10e6539261e732336db3d5365c8f24
                 "titulo": "O salão das escolhas",
                 "descricao": "Neste salão, serão dadas oportunidades..."
                             " Elas podem se repetir..."
@@ -151,7 +126,7 @@ def carregar_cenarios():
                        "salao pereira telles": "Retornar ao salão das oportunidades",
             }               
         }, 
-<<<<<<< HEAD
+
         "auditorio":{
                 "titulo":"Um poder oculto",
                 "descricao":"Nessa sala, voce sente um poder estranho emanando"
@@ -160,11 +135,9 @@ def carregar_cenarios():
                             " Traduzindo do holandês... basta falar e la vc estara.",
                             #holandes para "basta falar e la vc estara"
                 "opcoes":{
-                        #criar o teletransporte para a sala escolha(salao pereira telles)
+                        
                         }
     },
-   }
-=======
         "sala do monstro":{
                 "titulo":"A sala derradeira",
                 "descricao":"Você entrou na sala derradeira, tudo o que você fez o trouxe"
@@ -172,12 +145,13 @@ def carregar_cenarios():
                             "que vai acontecer aqui. Tudo depende disso, a sua nota em Dessoft"
                             "que você tanto quer preservar, a DP que você nâo quer pegar, tudo"
                             "depende da entrega do EP, e para isso, você precisa passar pelo teste"
-                            "final..."
+                            "final...",
                 "opcoes":{
                         
-                        }}
+                        }
+                }
     } 
->>>>>>> 28bb8b848a10e6539261e732336db3d5365c8f24
+
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
@@ -211,16 +185,7 @@ def main():
         print("-"*len(cenario_atual["descricao"]))
     
 
-#Tentativa de fazer o contador de hit points
-
-#        TempoRestante = cenario_atual['tempo']
-        
-        
-#        for v in TempoRestante.items():
-#            print("Seu tempo adicional é {0}".format(v))
-        
     
-        
         
         
         opcoes = cenario_atual['opcoes']
@@ -233,7 +198,10 @@ def main():
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
             
-        
+        elif len(opcoes) == 1:
+            
+            game_over = False 
+            
             
         else:
 
@@ -243,21 +211,12 @@ def main():
             
             escolha = input("Faça sua escolha: ")
                         
-           # if escolha in ['professor']: 
-
-                  
-<<<<<<< HEAD
-               # hp = hp - dano
-              #  print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
-            
-=======
-             #andar proan   hp = hp - dano
-            #    print('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')   
+   
             if escolha in ["secao 2"]:
                 print("você ganhou uma chave de sabedoria")
                 chave_de_sabedoria+=1
-                
->>>>>>> 28bb8b848a10e6539261e732336db3d5365c8f24
+                print(chave_de_sabedoria)
+
             if escolha in ["secao 1"]:
                 hp=hp - dano
                 print ('Voce recebeu',dano,'de dano, agora voce tem',hp,'de vida')
@@ -269,12 +228,10 @@ def main():
             if escolha in ['cafeteria']: #PROBLEMA - está add vida antes do cara escolher a opçao
                 hp = hp + 20
                 print ("Seu saldo de vida é: ", hp)
-                print(opcoes) 
                 
-            if len(opcoes) == 1:
-                print (opcoes)
-                
-            elif escolha in ["auditorio"]  == 'basta falar e voce estara la':
+
+
+            elif escolha in ["bibliotecaria"]  == 'basta falar e voce estara la':
                 print('Voce conseguiu uma chave do conhecimento')            
             
              #tentativa de criar escholer as armas 
@@ -292,7 +249,8 @@ def main():
             if escolha in opcoes:
                 nome_cenario_atual = escolha
                 
-            
+            elif escolha in ["bibliotecaria"]  == 'basta falar e voce estara la':
+                print('Voce conseguiu uma chave do conhecimento')   
                 
             elif len(escolha) != 0 and escolha not in opcoes:
                 print("Essa opção não existe!")
