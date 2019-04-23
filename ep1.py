@@ -92,7 +92,6 @@ def carregar_cenarios():
                         "auditorio": "Retornar ao auditório",
                         "cafeteria": "Avançar para a cafeteria",
                         "laboratorio": "Avançar para o laboratório",
-                        "sala de armas":"", #Outra opção
                         "sala da charada":"Avançar para uma sala enigmática"
                         }
                 },
@@ -145,15 +144,21 @@ def carregar_cenarios():
         "sala do monstro":{
                 "titulo":"A sala derradeira",
                 "descricao":"Você entrou na sala derradeira, tudo o que você fez o trouxe"
-                            "para cá, você tem observa o ambiente e se prepara, você sabe o"
-                            "que vai acontecer aqui. Tudo depende disso, a sua nota em Dessoft"
-                            "que você tanto quer preservar, a DP que você nâo quer pegar, tudo"
-                            "depende da entrega do EP, e para isso, você precisa passar pelo teste"
-                            "final...",
+                            " para cá, você observa o ambiente e se prepara, você sabe o"
+                            " que vai acontecer aqui. Tudo depende disso, a sua nota em Dessoft"
+                            " que você tanto quer preservar, a DP que você nâo quer pegar, tudo"
+                            " depende da entrega do EP, e para isso, você precisa passar pelo teste"
+                            " final..."
+                            " Se voce tiver acertado a charada, suas chances de resistir aos"
+                            " ataques dilacerantes do monstro aumentam. Só terá que resistir"
+                            " a dois deles, caso contrário, terá que resistir a três ataques"
+                            " brutais!",
                 "opcoes":{
-                        
+                        "ataque 1": "Se lascou sem charada",
+                        "ataque 2": "A água está no pescoço",
+                        "ataque 3": "Livre-se quem puder da DP"
                         }
-                }
+                },
     } 
 
     nome_cenario_atual = "inicio"
@@ -211,9 +216,6 @@ def main():
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
             
-        elif len(opcoes) == 1:
-            
-            game_over = False 
             
             
         else:
@@ -247,7 +249,7 @@ def main():
             elif escolha in ["auditorio"]  == 'basta falar e voce estara la':
                 print('Voce conseguiu uma chave do conhecimento')
                 
-            if opcoes in ["sala da charada"] != 0:
+            if escolha in ["resposta"]:
                 while True:
                     resposta = input("Digite a resposta, fim para encerrar")
                     if resposta == "fim":
@@ -260,6 +262,16 @@ def main():
                     else:
                           print("você não acertou, vai estudar mais pra não pegar outra")
                           print("DP além dessa de Dessoft a qual você ja está fadado")
+            
+            if opcoes in ['sala do monstro'] and chave_de_sabedoria>1:
+                hp1 = hp - dano
+                hp2 = hp1 - dano
+                print(hp2)
+            else:
+                hp1= hp - dano
+                hp2= hp1 - dano
+                hp3 = hp2 - dano
+                print(hp3)
                 
 
              #tentativa de criar escholer as armas 
