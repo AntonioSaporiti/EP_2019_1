@@ -1,3 +1,13 @@
+# EP 2019-1: Escape Insper
+#
+# Alunos: 
+# - aluno A: Antonio Saporiti, antonios2@al.insper.edu.br
+# - aluno B: Breno Marti, brenopm@al.insper.edu.br
+# - aluno C: Fernando Bichuette, fernandoba2@al.insper.edu.br
+#
+
+
+
 import random
 
 def carregar_cenarios():
@@ -91,21 +101,21 @@ def carregar_cenarios():
                 "opcoes": {
                         "auditorio": "Retornar ao auditório",
                         "cafeteria": "Avançar para a cafeteria",
-                        "laboratorio": "Avançar para o laboratório",
                         "sala da charada":"Avançar para uma sala enigmática"
                         }
                 },
+              
         "sala da charada":{
                 "titulo":"Um enigma",
                 "descricao": "Você entra na sala e se senta numa cadeira dela e observa a"
                              " lousa, em que uma frase foi escrita: O que usa coroa mas não"
                              " é rei??...", 
                 "opcoes":{
-                        "abacaxi": "para escrever sua resposta digite 'resposta'",
+                        "resposta": "para escrever sua resposta digite 'resposta'",
                         "salao soreira malles":"voltar ao salao soreira malles",
         }
                 },
-          "abacaxi":{
+          "resposta":{
                 "titulo":"Voce acertou",
                 "descricao":"Voce foi recompensado com uma chave da sabedoria",
                 "opcoes":{
@@ -150,7 +160,7 @@ def carregar_cenarios():
                             " a dois deles, caso contrário, terá que resistir a três ataques"
                             " brutais!",
                 "opcoes":{
-                        "o ataque": "A ultima jogada, se sobreviver é campeão"
+                        "ataque": "A ultima jogada, se sobreviver é campeão",
                         }
                 },
     } 
@@ -186,6 +196,8 @@ def main():
         print("-"*len(cenario_atual["titulo"]))
         print(cenario_atual["descricao"])
         print("-"*len(cenario_atual["descricao"]))
+        
+       
     
 
 #Tentativa de fazer o contador de hit points
@@ -242,33 +254,42 @@ def main():
 
             elif escolha in ["auditorio"]  == 'basta falar e voce estara la':
                 print('Voce conseguiu uma chave do conhecimento')
-                
-                
-        #    if escolha in ["resposta"]:
-          #3         resposta = input("Digite a resposta, fim para encerrar: ")
-            #        if resposta == "fim":
-             #           break
-              #      if resposta == "abacaxi":
-                  #  
-                   #     
-                    #    print("voce acertou")
-                     #   chave_de_sabedoria+=1
-                        
-                
-                      #  break
-                    
-                   # else:
-                    #      print("você não acertou, vai estudar mais pra não pegar outra")
-                     #     print("DP além dessa de Dessoft a qual você ja está fadado")
             
-            if escolha in ['o ataque']:
-                hp = hp - 80
+            
+            if escolha in ['ataque']:
+                hp = hp - 100
                 if hp > 0:
-                    print("Voce ganhou!!!", hp)
+                    print("Voce ganhou!!! Obrigado por jogar nosso jogo","seu restante de vida foi de",hp)
                 else:
-                    print("A DP chegou", hp)
-
-
+                    print("A DP chegou",hp + 100)
+                    print("Voce morreu")
+                
+                return
+            
+                
+                
+            if escolha in ["resposta"]:
+                while True:
+                    resposta = input("Digite a resposta, fim para encerrar: ")
+        
+                    if resposta == "abacaxi":
+                        print("voce acertou")
+                        chave_de_sabedoria+=1
+                        hp=hp+10
+                        break
+                    
+                    
+                    if resposta == "fim":
+                        break
+                        False
+                    
+                    else:
+                        print("você não acertou, vai estudar mais pra não pegar outra")
+                        print("DP além dessa de Dessoft a qual você ja está fadado")
+                        
+                    
+            
+            
 
                 
             if escolha in opcoes:
