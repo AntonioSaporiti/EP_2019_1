@@ -287,7 +287,8 @@ def main():
 
     print("Você morreu!")
 
-
+#ononononono
+    #ononon
 # Programa principal.
 if __name__ == "__main__":
     main()
